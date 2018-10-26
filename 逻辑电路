@@ -1,0 +1,66 @@
+#逻辑电路源代码
+class LogicGate(object):
+    def __init__(self,n):
+        self.label=n
+        self.output=None
+    def getlabel(self):
+        return (self.label)
+    def getoutput(self):
+        self.output=self.PerformGatelogic()#逻辑电路结果暂时代替
+        return self.output
+class BinaryGate(LogicGate):
+    def __init__(self,n):
+        LogicGate.__init__(self,n)
+        self.pinA=None
+        self.pinB=None
+    def getpinA(self):
+        return int(input("Enter pinA for gate"+self.getlabel()+'---->>>'))
+    def getpinB(self):
+        return eval(input("Enter pinB for gate"+self.getlabel()+'---->>>'))
+class UnaryGate(LogicGate):
+    def __init__(self,n):
+        LogicGate.__init__(self,n)
+        self.pin=None
+    def getpin(self):
+        return int(input("Enter pin for gate"+self.getlabel()+'------>>>>>'))
+class AndGate(BinaryGate):
+    def __init__(self,n):
+        super(AndGate,self).__init__(n)
+    def PerformGatelogic(self):
+        a=self.getpinA()
+        b=self.getpinB()
+        if a==1 and b==1:
+            print(1)
+            return 1
+        else:
+            print(0)
+            return 0
+class OrGate(BinaryGate):
+    def __init__(self,n):
+        BinaryGate.__init__(self,n)
+    def PerformGatelogic(self):
+        a=self.getpinA()
+        b=self.getpinB()
+        if a==0 and b==0:
+            print(0)
+            return 0
+        else:
+            print(1)
+            return 1
+class NotGate(UnaryGate):
+    def __init__(self,n):
+        super(NotGate, self).__init__(n)
+    def PerformGatelogic(self):
+        a=self.getpin()
+        if a==0:
+            print(1)
+            return 1
+        else:
+            print(0)
+            return 0
+g1=AndGate(" G1")
+g1.getoutput()
+g2=OrGate(" G2")
+g2.getoutput()
+g3=NotGate(" G3")
+g3.getoutput()
