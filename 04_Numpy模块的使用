@@ -1,0 +1,22 @@
+import numpy as np
+data1 = np.array([2,3,5])
+data2 = np.array([[25,56],
+                  [665,8]])
+data3 = np.zeros([5,6])
+data4 = np.ones([5,2])
+data3[0,0] = 5
+print(data1)
+print(data2)
+print(data1.shape)
+print(data2.shape)
+print(data3)
+print(data4[1,1])
+####
+#矩阵的运算
+import numpy as np
+data1 = np.ones([2,3])
+data2 = np.array([[2,5,6],
+                 [5,8,6]])
+print(data1*5)
+print(data1+data2)
+print(data1*data2)
